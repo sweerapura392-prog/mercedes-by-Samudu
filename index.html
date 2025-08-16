@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mercedes-Benz — History & Models</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {--bg: #162c57;--ink: #000000;--ink2: #0706d1;--brand:#000;--link: #0a5aeb;}
+    * { box-sizing: border-box; }
+    body {margin:0;font-family: Arial, Helvetica, sans-serif;background: var(--bg);color: #000000;line-height: 1.6;}
+    header { background: var(--brand); color:#fff; padding: 28px 16px; text-align:center; }
+    header h1 { margin:0 0 6px; letter-spacing: .5px; }
+    header p { margin:0; opacity:.9; }
+    nav { background:#222; display:flex; flex-wrap:wrap; gap:10px; padding:10px 12px; }
+    nav a { color:#808080; text-decoration:none; padding:8px 10px; border-radius:6px; font-weight:700; font-size:14px; }
+    nav a:hover { background:#333; text-decoration:underline; }
+    main { max-width:1100px; margin: 24px auto; background:#fff; padding: 20px; border-radius:12px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    h2 { margin-top:0; }
+    .search { margin: 20px 0; display:flex; gap:8px; flex-wrap:wrap; }
+    .search input[type="text"] { flex:1 1 320px; padding:10px 12px; border:1px solid #ccc; border-radius:8px; font-size:16px; }
+    .search button { padding:10px 14px; border:0; border-radius:8px; background:#0b62ff; color:#fff; font-weight:700; cursor:pointer; }
+    .search small { color:#666; display:block; margin-top:6px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+    .card { background:#fafafa; border:1px solid #eee; border-radius:10px; padding:14px; }
+    footer { text-align:center; padding: 10px; color:#888; font-size:12px; }
+  </style>
+  <script>
+    // Simple search router (type a page or model keyword)
+    function searchCar(e){
+      e && e.preventDefault();
+      const q = document.getElementById('q').value.trim().toLowerCase();
+
+      // alias map (add keys freely)
+      const map = {
+        "origin":"origin.html","first car":"origin.html","patent motorwagen":"origin.html",
+        "s":"sclass.html","s class":"sclass.html","s-class":"sclass.html","special class":"sclass.html",
+        "e":"eclass.html","e class":"eclass.html","e-class":"eclass.html",
+        "c":"cclass.html","c class":"cclass.html","c-class":"cclass.html",
+        "a":"aclass.html","a class":"aclass.html","a-class":"aclass.html",
+        "g":"gclass.html","g class":"gclass.html","g-class":"gclass.html","g-wagen":"gclass.html","geländewagen":"gclass.html",
+        "gl":"glclass.html","gl class":"glclass.html","gl-class":"glclass.html","gls":"glclass.html",
+        "m":"mclass.html","m class":"mclass.html","m-class":"mclass.html","gle":"mclass.html",
+        "exclusives":"exclusives.html","country exclusive":"country.html","country":"country.html",
+        "amg":"amg.html","maybach":"maybach.html","mercedes-maybach":"maybach.html",
+        "brabus":"brabus.html","hidden gems":"hidden.html","hidden":"hidden.html","less famous":"hidden.html"
+      };
+
+      if(map[q]) { location.href = map[q]; return; }
+
+      // quick model keyword helpers
+      const contains = (s)=> q.includes(s);
+      if(contains("amg")) return location.href="amg.html";
+      if(contains("maybach")) return location.href="maybach.html";
+      if(contains("brabus")) return location.href="brabus.html";
+      if(contains("g ")||contains(" g")||contains("g-wagen")) return location.href="gclass.html";
+
+      alert("No exact match found. Try: S Class, E Class, AMG, Maybach, Origin, Hidden Gems, etc.");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Mercedes-Benz</h1>
+    <p>The Beginning, the Icons, and the Exclusives</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="origin.html">Origin</a>
+    <a href="sclass.html">Mercedes S-Class</a>
+    <a href="eclass.html">Mercedes E-Class</a>
+    <a href="cclass.html">Mercedes C-Class</a>
+    <a href="aclass.html">Mercedes A-Class</a>
+    <a href="gclass.html">Mercedes G-Class</a>
+    <a href="glclass.html">Mercedes GL-Class</a>
+    <a href="mclass.html">Mercedes M-Class</a>
+    <a href="exclusives.html">Exclusives</a>
+    <a href="hidden.html">Hidden Gems</a>
+  </nav>
+
+  <main>
+    <h2>The Beginning of Mercedes-Benz & Its Founders</h2>
+    <p>
+      The story starts with <strong>Karl Benz</strong>, who patented the three-wheeled <em>Benz Patent-Motorwagen</em> in 1886,
+      widely regarded as the first practical automobile. In parallel, <strong>Gottlieb Daimler</strong> and engineer
+      <strong>Wilhelm Maybach</strong> developed high-speed petrol engines and early motorcars. In 1926, Benz &amp; Cie.
+      and Daimler-Motoren-Gesellschaft merged to form <strong>Daimler-Benz AG</strong>, and the unified passenger cars
+      adopted the name <strong>Mercedes-Benz</strong> — “Mercedes” coming from DMG’s successful racing and customer cars
+      named after Emil Jellinek’s daughter, Mercédès.
+    </p>
+
+    <form class="search" onsubmit="searchCar(event)">
+      <input id="q" type="text" placeholder="Search model or section (e.g., S Class, AMG, Origin, Hidden Gems)" />
+      <button type="submit">Search</button>
+      <small>Tip: try “S Class”, “G-Class”, “AMG”, “Maybach”, “Country Exclusive”, or “Hidden Gems”.</small>
+    </form>
+
+    <div class="grid">
+      <div class="card">
+        <h3><a href="origin.html">Origin</a></h3>
+        <p>Benz Patent-Motorwagen, first drives, early DMG cars, and the birth of the three-pointed star.</p>
+      </div>
+      <div class="card">
+        <h3><a href="sclass.html">S-Class</a></h3>
+        <p>Flagship luxury through the decades (W116 → W223): technology, safety, and comfort pioneers.</p>
+      </div>
+      <div class="card">
+        <h3><a href="eclass.html">E-Class</a></h3>
+        <p>Executive icon from Ponton and Fintail to today: durability, safety, and breadth of variants.</p>
+      </div>
+      <div class="card">
+        <h3><a href="cclass.html">C-Class</a></h3>
+        <p>Compact luxury benchmark (W202 onward): agility, efficiency, and performance editions.</p>
+      </div>
+      <div class="card">
+        <h3><a href="aclass.html">A-Class</a></h3>
+        <p>From innovative “sandwich” hatch to tech-savvy compact luxury with MBUX.</p>
+      </div>
+      <div class="card">
+        <h3><a href="gclass.html">G-Class</a></h3>
+        <p>Geländewagen legend: military roots to luxury off-road icon and AMG hero.</p>
+      </div>
+      <div class="card">
+        <h3><a href="glclass.html">GL-Class (GLS)</a></h3>
+        <p>Full-size family luxury SUV and later GLS evolution.</p>
+      </div>
+      <div class="card">
+        <h3><a href="mclass.html">M-Class (GLE)</a></h3>
+        <p>Segment-defining premium SUV turned GLE, balancing comfort and capability.</p>
+      </div>
+      <div class="card">
+        <h3><a href="exclusives.html">Exclusives</a></h3>
+        <p>Country Exclusives, AMG lineup, Mercedes-Maybach, and Brabus specials.</p>
+      </div>
+      <div class="card">
+        <h3><a href="hidden.html">Hidden Gems</a></h3>
+        <p>Less-famous Mercedes models you might not know — unusual, limited, or niche.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer><small>ALL RIGHTS RESERVED: SAMUDU WEERAPURA</small></footer>
+</body>
+</html>
